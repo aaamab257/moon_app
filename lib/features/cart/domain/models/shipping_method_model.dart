@@ -1,6 +1,6 @@
 class ShippingMethodModel {
   int? id;
-  String? creatorId;
+  int? creatorId;
   String? creatorType;
   String? title;
   double? cost;

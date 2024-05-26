@@ -13,24 +13,29 @@ class AllProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: ColorResources.getHomeBg(context),
       resizeToAvoidBottomInset: false,
-      appBar: CustomAppBar(title: productType == ProductType.featuredProduct ? '${getTranslated('featured_product', context)}':productType == ProductType.justForYou ?'${getTranslated('just_for_you', context)}':'${getTranslated('latest_product', context)}'),
-
+      appBar: CustomAppBar(
+          title: productType == ProductType.featuredProduct
+              ? '${getTranslated('featured_product', context)}'
+              : productType == ProductType.justForYou
+                  ? '${getTranslated('just_for_you', context)}'
+                  : '${getTranslated('latest_product', context)}'),
       body: SafeArea(
         child: RefreshIndicator(
           backgroundColor: Theme.of(context).primaryColor,
-          onRefresh: () async {
-          },
+          onRefresh: () async {},
           child: CustomScrollView(
             controller: _scrollController,
             slivers: [
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
-                  child: ProductView(isHomePage: false , productType: productType, scrollController: _scrollController),
+                  child: ProductView(
+                      isHomePage: false,
+                      productType: productType,
+                      scrollController: _scrollController),
                 ),
               ),
             ],

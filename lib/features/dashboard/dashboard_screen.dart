@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sixvalley_ecommerce/features/cart/views/cart_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/helper/network_info.dart';
 import 'package:flutter_sixvalley_ecommerce/features/splash/provider/splash_provider.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/basewidget/custom_exit_card.dart';
-import 'package:flutter_sixvalley_ecommerce/features/chat/view/inbox_screen.dart';
+
 import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
 import 'package:flutter_sixvalley_ecommerce/features/home/view/aster_theme_home_page.dart';
 import 'package:flutter_sixvalley_ecommerce/features/home/view/fashion_theme_home_page.dart';
 import 'package:flutter_sixvalley_ecommerce/features/home/view/home_screens.dart';
-import 'package:flutter_sixvalley_ecommerce/features/more/more_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/features/order/view/order_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_sixvalley_ecommerce/features/profile/view/profile_screen.dart';
+
 
 class DashBoardScreen extends StatefulWidget {
   const DashBoardScreen({super.key});
@@ -51,17 +53,42 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       "theme_aster")
                   ? const AsterThemeHomePage()
                   : const FashionThemeHomePage()),
-      if (!singleVendor)
-        NavigationModel(
-            name: 'inbox',
-            icon: Images.messageImage,
-            screen: const InboxScreen(isBackButtonExist: false)),
+      // Stack(clipBehavior: Clip.none, children: [
+      //       Image.asset(Images.cartArrowDownImage,
+      //           height: Dimensions.iconSizeDefault,
+      //           width: Dimensions.iconSizeDefault,
+      //           color: ColorResources.lightSkyBlue),
+      //       Positioned(
+      //         top: -4,
+      //         right: -4,
+      //         child: Consumer<CartController>(builder: (context, cart, child) {
+      //           return CircleAvatar(
+      //             radius: 7,
+      //             backgroundColor: ColorResources.red,
+      //             child: Text(cart.cartList.length.toString(),
+      //                 style: titilliumSemiBold.copyWith(
+      //                   color: ColorResources.white,
+      //                   fontSize: Dimensions.fontSizeExtraSmall,
+      //                 )),
+      //           );
+      //         }),
+      //       ),
+      //     ]),
+      // if (!singleVendor)
+      //   NavigationModel(
+      //       name: 'inbox',
+      //       icon: Images.messageImage,
+      //       screen: const InboxScreen(isBackButtonExist: false)),
+      NavigationModel(
+          name: 'cart',
+          icon: Images.cartArrowDownImage,
+          screen: const CartScreen()),
       NavigationModel(
           name: 'orders',
           icon: Images.shoppingImage,
           screen: const OrderScreen(isBacButtonExist: false)),
       NavigationModel(
-          name: 'more', icon: Images.moreImage, screen: const MoreScreen()),
+          name: 'profile', icon: Images.user, screen: const ProfileScreen()),
     ];
 
     NetworkInfo.checkConnectivity(context);
@@ -86,8 +113,17 @@ class DashBoardScreenState extends State<DashBoardScreen> {
       child: Scaffold(
         key: _scaffoldKey,
         body: PageStorage(bucket: bucket, child: _screens[_pageIndex].screen),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        // floatingActionButton: FloatingActionButton(
+        //   child:
+        //   onPressed: () {
+        //     Navigator.push(
+        //         context, MaterialPageRoute(builder: (_) => const CartScreen()));
+        //   },
+        //   backgroundColor: Colors.white,
+        // ),
         bottomNavigationBar: Container(
-          height: 65,
+          height: 70,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(Dimensions.paddingSizeLarge)),

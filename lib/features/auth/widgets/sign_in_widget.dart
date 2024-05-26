@@ -153,8 +153,8 @@ class SignInWidgetState extends State<SignInWidget> {
             Hero(
                 tag: 'user',
                 child: CustomTextField(
-                    hintText: getTranslated('enter_email_or_mobile', context),
-                    labelText: getTranslated('user_name', context),
+                    hintText: getTranslated('enter_mobile_number', context),
+                    labelText: getTranslated('enter_mobile_number', context),
                     focusNode: _emailNode,
                     nextFocus: _passNode,
                     isRequiredFill: true,
@@ -164,7 +164,7 @@ class SignInWidgetState extends State<SignInWidget> {
                     showLabelText: true,
                     required: true,
                     validator: (value) => ValidateCheck.validateEmptyText(
-                        value, "enter_email_or_mobile"))),
+                        value, "enter_mobile_number"))),
             const SizedBox(
               height: Dimensions.paddingSizeDefault,
             ),
@@ -213,14 +213,14 @@ class SignInWidgetState extends State<SignInWidget> {
                     child: Text(getTranslated('remember', context)!,
                         style: textRegular))
               ]),
-              InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => const ForgetPasswordScreen())),
-                  child: Text('${getTranslated('forget_password', context)!}?',
-                      style: titilliumRegular.copyWith(
-                          color: ColorResources.getPrimary(context))))
+              // InkWell(
+              //     onTap: () => Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (_) => const ForgetPasswordScreen())),
+              //     child: Text('${getTranslated('forget_password', context)!}?',
+              //         style: titilliumRegular.copyWith(
+              //             color: ColorResources.getPrimary(context))))
             ]),
             Container(
               margin: const EdgeInsets.only(bottom: 20, top: 30),
@@ -238,8 +238,8 @@ class SignInWidgetState extends State<SignInWidget> {
                           onTap: loginUser,
                           buttonText: getTranslated('login', context))),
             ),
-            const SizedBox(width: Dimensions.paddingSizeDefault),
-            const SocialLoginWidget(),
+            // const SizedBox(width: Dimensions.paddingSizeDefault),
+            // const SocialLoginWidget(),
             Consumer<AuthController>(builder: (context, authProvider, _) {
               return GestureDetector(
                 onTap: () {

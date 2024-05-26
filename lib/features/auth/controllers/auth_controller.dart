@@ -24,7 +24,7 @@ class AuthController with ChangeNotifier {
   int _selectedIndex = 0;
   int get selectedIndex => _selectedIndex;
 
-  String countryDialCode = '+880';
+  String countryDialCode = '+20';
   void setCountryCode(String countryCode, {bool notify = true}) {
     countryDialCode = countryCode;
     if (notify) {
@@ -164,10 +164,10 @@ class AuthController with ChangeNotifier {
       if (token != null && token.isNotEmpty) {
         authRepo!.saveUserToken(token);
         await authRepo!.updateDeviceToken();
-        setCurrentLanguage(
-            Provider.of<LocalizationProvider>(Get.context!, listen: false)
-                    .getCurrentLanguage() ??
-                'en');
+        // setCurrentLanguage(
+        //     Provider.of<LocalizationProvider>(Get.context!, listen: false)
+        //             .getCurrentLanguage() ??
+        //         'en');
       }
       callback(true, token, temporaryToken, message);
       notifyListeners();

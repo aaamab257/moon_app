@@ -21,6 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
+	
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
@@ -43,6 +44,8 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>FLTEnableImpeller</key>
+    <false />
 	<key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>

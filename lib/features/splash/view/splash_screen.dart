@@ -140,8 +140,8 @@ class SplashScreenState extends State<SplashScreen> {
           ? Center(
               child: Column(mainAxisSize: MainAxisSize.min, children: [
                 SizedBox(
-                    width: 100,
-                    child: Image.asset(Images.splashLogo, width: 100.0)),
+                    width: 300,
+                    child: Image.asset(Images.splashLogo, width: 300.0)),
                 // Text(AppConstants.appName,
                 //     style: textRegular.copyWith(
                 //         fontSize: Dimensions.fontSizeOverLarge,

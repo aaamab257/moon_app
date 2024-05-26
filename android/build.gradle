@@ -1,25 +1,17 @@
 buildscript {
-    ext.kotlin_version = '1.8.0'
     repositories {
         google()
-        mavencentral()
+        mavenCentral()
     }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.1'
-        classpath 'com.google.gms:google-services:4.3.10'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
+  dependencies {
+    // ... other dependencies
+    classpath 'com.google.gms:google-services:4.4.1'
+  }
 }
-
 allprojects {
     repositories {
         google()
-        mavencentral()
-    }
-
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << '-Xlint:-options'
+        mavenCentral()
     }
 }
 

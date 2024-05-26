@@ -53,12 +53,12 @@ class _AuthScreenState extends State<AuthScreen>
               children: [
                 Stack(children: [
                   Container(
-                      height: 200,
+                      height: 0,
                       decoration:
                           BoxDecoration(color: Theme.of(context).primaryColor)),
                   Image.asset(Images.loginBg,
                       fit: BoxFit.cover,
-                      height: 200,
+                      height: 50,
                       opacity: const AlwaysStoppedAnimation(.15)),
                   Padding(
                       padding: EdgeInsets.only(
